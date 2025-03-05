@@ -74,7 +74,7 @@ namespace pruebaApiPSP.Controllers
 
         // POST: api/Players
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
+        [HttpPost("save")]
         public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
             _context.Players.Add(player);
