@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("pruebaApiPSP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3624058de2d4f8576894bb01f26d8bd1c16e3752")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+29a14fc2af6b77eb97c12018b88754e977286f9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("pruebaApiPSP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("pruebaApiPSP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
