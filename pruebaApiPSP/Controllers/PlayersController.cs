@@ -41,9 +41,9 @@ namespace pruebaApiPSP.Controllers
             return player;
         }
 
-        // PUT: api/Players/5
+        // PUT: api/Players/save/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+        [HttpPut("save/{id}")]
         public async Task<IActionResult> PutPlayer(long id, Player player)
         {
             if (id != player.Id)
