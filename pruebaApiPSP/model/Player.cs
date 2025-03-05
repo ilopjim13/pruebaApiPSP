@@ -6,6 +6,6 @@ public class Player
     public string? Name { get; set; }
     public int MaxHp { get; set; }
     public int Hp { get; set; }
-    public float[] Position { get; set; }
-    public Inventory[] inventory { get; set; }
+    public float[]? Position { get; set; }
+    public Inventory[]? Inventory { get; set; }
 }
