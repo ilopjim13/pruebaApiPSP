@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using pruebaApiPSP.model;
+using pruebaApiPSP.service;
 
 namespace pruebaApiPSP.Controllers
 {
@@ -14,31 +15,33 @@ namespace pruebaApiPSP.Controllers
     public class PlayersController : ControllerBase
     {
         private readonly PlayerContext _context;
+        private readonly PlayerService _playerService;
 
-        public PlayersController(PlayerContext context)
+        public PlayersController(PlayerContext context, PlayerService playerService)
         {
             _context = context;
+            _playerService = playerService;
         }
 
         // GET: api/Players
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Player>>> GetPlayers()
         {
-            return await _context.Players.ToListAsync();
+            return await _playerService.GetAsync();
         }
 
         // GET: api/Players/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Player>> GetPlayer(long id)
         {
-            var player = await _context.Players.FindAsync(id);
+            var player = await _playerService.GetAsync(id);
 
             if (player == null)
             {
                 return NotFound();
             }
 
-            return player;
+            return Ok(player);
         }
 
         // PUT: api/Players/save/5
@@ -51,23 +54,14 @@ namespace pruebaApiPSP.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(player).State = EntityState.Modified;
-
-            try
+            
+            var existingPlayer = await _playerService.GetAsync(id);
+            if (existingPlayer == null)
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PlayerExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+    
+            await _playerService.UpdateAsync(id, player);
 
             return NoContent();
         }
@@ -77,8 +71,7 @@ namespace pruebaApiPSP.Controllers
         [HttpPost("save")]
         public async Task<ActionResult<Player>> PostPlayer(Player player)
         {
-            _context.Players.Add(player);
-            await _context.SaveChangesAsync();
+            await _playerService.CreateAsync(player);
 
             return CreatedAtAction("GetPlayer", new { id = player.Id }, player);
         }
@@ -87,21 +80,15 @@ namespace pruebaApiPSP.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePlayer(long id)
         {
-            var player = await _context.Players.FindAsync(id);
+            var player = await _playerService.GetAsync(id);
             if (player == null)
             {
                 return NotFound();
             }
-
-            _context.Players.Remove(player);
-            await _context.SaveChangesAsync();
+            
+            await _playerService.RemoveAsync(id);
 
             return NoContent();
-        }
-
-        private bool PlayerExists(long id)
-        {
-            return _context.Players.Any(e => e.Id == id);
         }
     }
 }

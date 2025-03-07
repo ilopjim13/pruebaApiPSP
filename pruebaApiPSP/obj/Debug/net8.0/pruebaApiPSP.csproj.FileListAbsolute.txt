@@ -555,3 +555,9 @@ C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\obj\Debug\net8.0\refint\pr
 C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\obj\Debug\net8.0\pruebaApiPSP.pdb
 C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\obj\Debug\net8.0\pruebaApiPSP.genruntimeconfig.cache
 C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\obj\Debug\net8.0\ref\pruebaApiPSP.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\DnsClient.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\MongoDB.Bson.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\MongoDB.Driver.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\SharpCompress.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\Snappier.dll
+C:\Users\ivan\RiderProjects\pruebaApiPSP\pruebaApiPSP\bin\Debug\net8.0\ZstdSharp.dll
